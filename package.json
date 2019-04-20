@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha",
+    "prod": "node index.js",
     "start": "nodemon",
     "run": "docker-compose up",
     "apidoc": "apidoc -i docs/ -o ./public/apidoc",
