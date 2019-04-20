@@ -1,7 +1,7 @@
 version: "3"
 services:
-  app:
-    container_name: translate-server
+  nodejs:
+    container_name: nodejs
     restart: always
     build: ./
     ports:
@@ -15,3 +15,11 @@ services:
     image: mongo
     ports:
       - "27017:27017"
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - nodejs      
