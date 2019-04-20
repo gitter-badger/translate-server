@@ -68,7 +68,7 @@ app.use(session({
     // expires: new Date(Date.now() + day),
     // maxAge: day,
     store: new MongoStore({ mongooseConnection: mongoose.connection }),
-    cookie: { secure: NODE_ENV === 'production' ? true: false }
+    cookie: { secure: false } // todo: NODE_ENV === 'production' ? true: false
 }));
 app.set('json spaces', 2);
 app.set('views', path.join(__dirname, 'views'));
