@@ -33,7 +33,7 @@ const config = {
         HOST_NAME: `http://localhost:${PORT}`
     },
     production: {
-        MONGO_URL: 'mongodb//mongo:27017/translate',
+        MONGO_URL: 'mongodb://mongo:27017/translate',
         LOG_LEVEL: 'error',
         HOST_NAME: 'https://translate.tsq.me'
     }
