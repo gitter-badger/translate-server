@@ -2,6 +2,10 @@
 
 Building a custom translator.
 
+### Run
+
+- local development: `npm start`
+- production deployment: `docker-compose up -d`
 
 ### IT Stacks
 
@@ -10,7 +14,7 @@ Building a custom translator.
 - Mongodb
 - Session Auth
 - JWT Auth
-- Docker && docker-composer
+- Docker && docker-compose
 - AWS Route53
 - AWS EC2
 
@@ -25,3 +29,12 @@ Building a custom translator.
  - https://www.sohamkamani.com/blog/javascript/2018-06-24-oauth-with-node-js/
  - https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04
  - https://www.digitalocean.com/community/tutorials/how-to-secure-a-containerized-node-js-application-with-nginx-let-s-encrypt-and-docker-compose
+
+ ### Note
+
+docker link:
+
+ ```sh
+docker run -d --name myMongoDB mongo
+docker run --link myMongoDB:tmongo -p 5000:5000 tsq/tm
+ ```
