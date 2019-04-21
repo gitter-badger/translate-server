@@ -5,6 +5,5 @@ module.exports = {
         const user = req.user;
         const token = generateToken(user);
         res.render('test', { token });
-        // res.ok(token);
     }
 };

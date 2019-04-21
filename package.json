@@ -55,6 +55,7 @@
   "devDependencies": {
     "apidoc": "^0.17.7",
     "mocha": "^6.1.4",
-    "nodemon": "^1.18.11"
+    "nodemon": "^1.18.11",
+    "supertest": "^4.0.2"
   }
 }

@@ -39,7 +39,7 @@ const config = {
     production: {
         MONGO_URL: 'mongodb://mongo:27017/translate',
         LOG_LEVEL: 'error',
-        HOST_NAME: 'http://translate.i-aws.com'
+        HOST_NAME: 'https://translate.i-aws.com'
     }
 };
 

@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
     }
 })
 
-var upload = multer({ storage: storage })
+var upload = multer({ storage: storage });
 const app = express.Router();
 
 app.use(auth.token);

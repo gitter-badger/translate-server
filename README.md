@@ -24,6 +24,7 @@ create the below files in project root directory.
 - Docker && docker-compose
 - AWS Route53
 - AWS EC2
+- AWS S3
 
 ### Site point
 
