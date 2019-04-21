@@ -56,7 +56,7 @@ process.on('uncaughtException', async ex => {
 });
 
 // set up middleware
-app.set('trust proxy', true);
+app.set('trust proxy', 1);
 app.use(addonResponse);
 
 // const day = 30 * 24 * 3600 * 1000;

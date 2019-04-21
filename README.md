@@ -53,24 +53,23 @@ docker run --link myMongoDB:tmongo -p 5000:5000 tsq/tm
  
  ### TODO
  
- ```js
- const vision = require('@google-cloud/vision');
 
-// https://github.com/googleapis/nodejs-vision#readme
-// Creates a client
-const client = new vision.ImageAnnotatorClient();
+### Initial Ubuntu18
 
-/**
- * TODO(developer): Uncomment the following line before running the sample.
- */
-// const fileName = 'Local image file, e.g. /path/to/image.png';
-
-// Performs text detection on the local file
-async function run() {
-    const [result] = await client.textDetection('https://s3.amazonaws.com/tsq-translate/demo.png');
-    const detections = result.textAnnotations;
-    console.log(detections[0]['description']);
-}
-
-run();
- ```
+```
+apt-get update -y
+apt-get install zsh unzip git -y
+# install oh my zsh: https://github.com/robbyrussell/oh-my-zsh
+# install docker: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04
+# install docker-compose: https://docs.docker.com/compose/install/
+# config ssh: https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+# install nvm: https://github.com/creationix/nvm/blob/master/README.md
+nvm install v10.15.3
+g clone https://github.com/tsq-cli/translate-server
+cd translate-server
+touch .env google-auth.json
+# edit .env and google-auth.json
+# install node_modules
+./init-letsencrypt.sh
+docker-compose up -d
+```
