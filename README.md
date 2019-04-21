@@ -29,6 +29,8 @@ Building a custom translator.
  - https://www.sohamkamani.com/blog/javascript/2018-06-24-oauth-with-node-js/
  - https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04
  - https://www.digitalocean.com/community/tutorials/how-to-secure-a-containerized-node-js-application-with-nginx-let-s-encrypt-and-docker-compose
+ - nginx support https: https://medium.com/@pentacent/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71
+ - reacti18n: https://github.com/i18next/react-i18next
 
  ### Note
 
