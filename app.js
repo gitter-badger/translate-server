@@ -1,5 +1,4 @@
 const path = require('path');
-
 // setup google env var
 // doc: https://cloud.google.com/translate/docs/quickstart-client-libraries
 process.env.GOOGLE_APPLICATION_CREDENTIALS = path.resolve(__dirname, 'google-auth.json');
@@ -67,8 +66,9 @@ app.use(session({
     // expires: new Date(Date.now() + day),
     // maxAge: day,
     store: new MongoStore({ mongooseConnection: mongoose.connection }),
-    cookie: { secure: NODE_ENV === 'production' ? true: false } // NODE_ENV === 'production' ? true: false
+    cookie: { secure: NODE_ENV === 'production' ? true: false }
 }));
+
 app.set('json spaces', 2);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
