@@ -10,7 +10,9 @@ const {
     BAIDU_APP_ID,
     BAIDU_APP_KEY,
     YOUDAO_APP_KEY,
-    YOUDAO_KEY
+    YOUDAO_KEY,
+    AWS_S3_KEY_ID,
+    AWS_S3_ACCESS_KEY
 } = env;
 
 const common = {
@@ -23,7 +25,9 @@ const common = {
     BAIDU_APP_ID,
     BAIDU_APP_KEY,
     YOUDAO_APP_KEY,
-    YOUDAO_KEY
+    YOUDAO_KEY,
+    AWS_S3_KEY_ID,
+    AWS_S3_ACCESS_KEY
 };
 
 const config = {

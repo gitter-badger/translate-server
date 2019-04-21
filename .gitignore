@@ -3,3 +3,7 @@ node_modules
 .env
 public/apidoc
 public/build
+google-auth.json
+t.js
+t.png
+uploads/*.[png|jpg|jpeg|gif]

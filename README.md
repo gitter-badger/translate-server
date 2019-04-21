@@ -2,6 +2,13 @@
 
 Building a custom translator.
 
+### Prepare
+
+create the below files in project root directory.
+
+- `.env` for env variables.
+- `google-auth.json` for google api auth.
+
 ### Run
 
 - local development: `npm start`

@@ -32,14 +32,9 @@ const names = [];
 /**
  * doc: https://ai.youdao.com/docs/doc-trans-api.s#p07
  * ref: https://github.com/command-line-tool/dictionary/blob/master/app.js
- * @param {*} params 
  */
 const run = async (params) => {
-    const from = params.from || 'zh-CHS';
-    const to = params.to || 'en';
-    const q = params.q;
-
-    // if (!names.includes(from) || !names.includes(to) ) return new Error('lang not be supported.');
+    const { from, to, q } = params;
     if (!q) return new Error('q is required.');
 
     const salt = new Date().getTime();
@@ -48,7 +43,6 @@ const run = async (params) => {
     
     const sign = sha256(str1);
     const config = { q, appKey, salt, from, to, curtime, sign, signType: 'v3' };
-
     try {
         const response =  await axios({
             method: 'POST',

@@ -1,7 +1,15 @@
 const generateToken = require('../../utils/generateToken');
 const youdaoTransAPI = require('../../libs/youdao');
 const baiduTransAPI = require('../../libs/baidu');
-const googleTransAPI = require('../../libs/google').translateText;
+const googleAPI = require('../../libs/google');
+
+const upload = require('../../utils/upload');
+const visionAPI = require('../../libs/vision');
+const log = require('../../utils/log');
+
+const googleTransAPI = googleAPI.translateText;
+const detectLanguage = googleAPI.detectLanguage;
+const textDetection = visionAPI.textDetection;
 
 module.exports = {
     validToken: (req, res) => {
@@ -9,20 +17,37 @@ module.exports = {
     },
     
     translate: async(req, res) => {
-        const { from, to, q } = req.body;
-        if (!from || !to || !q) return res.invalid('params is missing');
+        const { detect, brand, body } = req.body;
+        log.info('translate', req.body);
+        let api = null;
+        let params = body;
+        let googleTo = body.to;
 
-        let result = null;
-        if (from === 'zh' && to === 'en') {
-            const data = await youdaoTransAPI(Object.assign({}, req.body, { from: 'zh-CHS' }));
-            result = data;
-        } else if (from === 'zh' || to === 'zh') {
-            const data = await baiduTransAPI(req.body);
-            result = data;
+        if (detect) {
+            const detectResult = await detectLanguage(body.q);
+            log.info('detectResult:', {detectResult});
+            googleTo = detectResult === 'en' ? detect : en
+        } 
+        if (brand === 'baidu') {
+            api = baiduTransAPI;
+        } else if (brand === 'youdao') {
+            api = youdaoTransAPI;
         } else {
-            const data = await googleTransAPI(req.body);
-            result = data;
+            api = googleTransAPI;
+            params = {
+                q: body.q,
+                to: googleTo
+            }
         }
-        res.ok(result);
+
+        let response = await api(params);
+        res.ok(response);
+    },
+
+    ocr: async(req, res) => {
+        if (!req.file) return res.invalid('input invalid');
+        const fileLocation = await upload(req.file.path);
+        const data = await textDetection(fileLocation);
+        res.ok(data);
     }
 };

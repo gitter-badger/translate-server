@@ -29,7 +29,7 @@ async function translateText(params) {
   const { to, q } = params;
   let [translations] = await translate.translate(q, to);
   translations = Array.isArray(translations) ? translations : [translations];
-  return translations;
+  return translations[0];
 }
 
 exports.translateText = translateText;

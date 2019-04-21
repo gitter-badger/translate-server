@@ -1,3 +1,8 @@
+const path = require('path');
+
+// setup google env var
+// doc: https://cloud.google.com/translate/docs/quickstart-client-libraries
+process.env.GOOGLE_APPLICATION_CREDENTIALS = path.resolve(__dirname, 'google-auth.json');
 require('express-async-errors');
 require('dotenv').config();
 const express = require('express');
@@ -8,8 +13,6 @@ const cors = require('cors');
 const helmet = require('helmet');
 const compression = require('compression');
 const addonResponse = require('express-addon-response');
-const path = require('path');
-const fileUpload = require('express-fileupload');
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session);
 
@@ -52,10 +55,6 @@ process.on('uncaughtException', async ex => {
     process.exit(1);
 });
 
-// setup google env var
-// doc: https://cloud.google.com/translate/docs/quickstart-client-libraries
-process.env.GOOGLE_APPLICATION_CREDENTIALS = path.resolve(__dirname, 'libs', 'tsq-tool.json');
-
 // set up middleware
 app.set('trust proxy', true);
 app.use(addonResponse);
@@ -73,7 +72,6 @@ app.use(session({
 app.set('json spaces', 2);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.use(fileUpload());
 app.use(helmet());
 app.use(compression());
 app.use(morgan('dev'));
