@@ -5,5 +5,5 @@ public/apidoc
 public/build
 google-auth.json
 t.js
-t.png
 uploads/*.png
+*.png
