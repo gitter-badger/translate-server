@@ -56,7 +56,7 @@ docker run --link myMongoDB:tmongo -p 5000:5000 tsq/tm
 
 ### Initial Ubuntu18
 
-```
+```sh
 apt-get update -y
 apt-get install zsh unzip git -y
 # install oh my zsh: https://github.com/robbyrussell/oh-my-zsh
