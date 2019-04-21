@@ -40,6 +40,7 @@ create the below files in project root directory.
  - nginx support https: https://medium.com/@pentacent/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71
  - reacti18n: https://github.com/i18next/react-i18next
  - upload file using axios: https://stackoverflow.com/questions/53038900/nodejs-axios-post-file-from-local-server-to-another-server
+ - docker-compose: https://docs.docker.com/compose/install/
 
  ### Note
 
