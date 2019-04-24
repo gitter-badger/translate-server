@@ -61,12 +61,12 @@ app.use(addonResponse);
 // const day = 30 * 24 * 3600 * 1000;
 app.use(session({
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     secret: SESSION_SECRET,
     // expires: new Date(Date.now() + day),
     // maxAge: day,
     store: new MongoStore({ mongooseConnection: mongoose.connection }),
-    cookie: { secure: NODE_ENV === 'production' ? true: false }
+    cookie: { secure: NODE_ENV === 'production' ? true : false }
 }));
 
 app.set('json spaces', 2);

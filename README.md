@@ -41,7 +41,12 @@ create the below files in project root directory.
  - reacti18n: https://github.com/i18next/react-i18next
  - upload file using axios: https://stackoverflow.com/questions/53038900/nodejs-axios-post-file-from-local-server-to-another-server
  - docker-compose: https://docs.docker.com/compose/install/
-
+ - multi commands with ssh: https://www.cyberciti.biz/faq/linux-unix-osx-bsd-ssh-run-command-on-remote-machine-server/ 
+ - google vision face: https://cloud.google.com/vision/#industry-leading-accuracy-for-image-understanding
+ - node camera: https://github.com/chuckfairy/node-webcam#readme
+ - serial-number: https://github.com/es128/serial-number
+ - serverless upload: https://read.acloud.guru/how-to-add-file-upload-features-to-your-website-with-aws-lambda-and-s3-48bbe9b83eaa
+ - mongodb command: https://www.cnblogs.com/wpjzh/p/5999363.html
  ### Note
 
 docker link:
