@@ -45,6 +45,7 @@
     "joi-objectid": "^2.0.0",
     "js-sha256": "^0.9.0",
     "jsonwebtoken": "^8.5.1",
+    "mime-types": "^2.1.24",
     "moment": "^2.24.0",
     "mongoose": "^5.5.2",
     "morgan": "^1.9.1",

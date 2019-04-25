@@ -1,11 +1,14 @@
+const uuid = require('uuid/v1');
+
 const generateToken = require('../../utils/generateToken');
 const youdaoTransAPI = require('../../libs/youdao');
 const baiduTransAPI = require('../../libs/baidu');
 const googleAPI = require('../../libs/google');
 
-const upload = require('../../utils/upload');
+const { getPreSignUrl, getObjectUrlByKey } = require('../../utils/aws').s3;
 const visionAPI = require('../../libs/vision');
 const log = require('../../utils/log');
+
 
 const googleTransAPI = googleAPI.translateText;
 const detectLanguage = googleAPI.detectLanguage;
@@ -45,9 +48,15 @@ module.exports = {
     },
 
     ocr: async(req, res) => {
-        if (!req.file) return res.invalid('input invalid');
-        const fileLocation = await upload(req.file.path);
-        const data = await textDetection(fileLocation);
-        res.ok(data);
+        const { key } = req.query;
+        const fileUrl = getObjectUrlByKey(key);
+        const result = await textDetection(fileUrl);
+        res.ok(result);
+    },
+
+    getPreSignUrl: async (req, res) => {
+        const { fileName } = req.query;
+        const result = await getPreSignUrl(req.user.oid, fileName);
+        res.json(result);
     }
 };
