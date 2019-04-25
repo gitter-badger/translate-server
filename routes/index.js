@@ -12,11 +12,11 @@ module.exports = app => {
     app.use('/auth', auth);
     app.use('/api', api);
 
-    app.use(express.static('public/build'));
-
-    if (process.env.NODE_ENV === 'production') {
+    if (['production', 'ci'].includes(process.env.NODE_ENV)) {
+        app.use(express.static('client/build'));
+      
         app.get('*', (req, res) => {
-            res.sendFile(path.resolve('public', 'build', 'index.html'));
+          res.sendFile(path.resolve('client', 'build', 'index.html'));
         });
     }
     
