@@ -7,17 +7,23 @@
     "test": "mocha",
     "prod": "node index.js",
     "start": "nodemon",
+    "eslint": "eslint",
     "run": "docker-compose up",
     "apidoc": "apidoc -i docs/ -o ./public/apidoc",
-    "webapp:build": "cd webapp && npm run build && cp -R build ../public/",
-    "build": "npm run apidoc && npm run webapp:build"
+    "client:build": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
+    "client:release": " cp -R client/build ../public/",
+    "build": "npm run apidoc && npm run client:build && npm run client:release",
+    "server": "nodemon index.js --ignore tests",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "check": "npm run eslint && npm run test"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tsq-cli/translate-server.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "tsq",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/tsq-cli/translate-server/issues"
@@ -53,8 +59,18 @@
   },
   "devDependencies": {
     "apidoc": "^0.17.7",
+    "concurrently": "^4.1.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.17.2",
+    "husky": "^2.1.0",
     "mocha": "^6.1.4",
     "nodemon": "^1.18.11",
     "supertest": "^4.0.2"
+  },
+  "husky": {
+    "hooks": {
+      
+    }
   }
 }
