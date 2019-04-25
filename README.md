@@ -1,7 +1,16 @@
 # TRANSLATE-SERVER
 
- [![](https://travis-ci.org/tsq-cli/translate-server.svg?branch=master)](https://travis-ci.org/tsq-cli/translate-server)
-
+- [![](https://travis-ci.org/tsq-cli/translate-server.svg?branch=master)](https://travis-ci.org/tsq-cli/translate-server) 
+- [![start with why](https://img.shields.io/badge/start%20with-why%3F-brightgreen.svg?style=flat)](http://www.ted.com/talks/simon_sinek_how_great_leaders_inspire_action)
+- [![Inline docs](http://inch-ci.org/github/tsq-cli/translate-server.svg?branch=master)](http://inch-ci.org/github/tsq-cli/translate-server) 
+- [![Dependency Status](https://david-dm.org/tsq-cli/translate-server.svg)](https://david-dm.org/tsq-cli/translate-server)  
+- [![JavaScript Style Guide: Good Parts](https://img.shields.io/badge/code%20style-goodparts-brightgreen.svg?style=flat)](https://eslint.org "JavaScript The Good Parts")
+- [![Known Vulnerabilities](https://snyk.io/test/github/dwyl/hapi-auth-jwt2/badge.svg?targetFile=package.json)](https://snyk.io/test/github/dwyl/hapi-auth-jwt2?targetFile=package.json)
+- [![codecov.io Code Coverage](https://img.shields.io/codecov/c/github/dwyl/hapi-auth-jwt2.svg?maxAge=2592000)](https://codecov.io/github/dwyl/hapi-auth-jwt2?branch=master)
+- [![Code Climate](https://codeclimate.com/github/dwyl/esta/badges/gpa.svg)](https://codeclimate.com/github/dwyl/esta)
+- [![devDependencies Status](https://david-dm.org/dwyl/hapi-auth-jwt2/dev-status.svg)](https://david-dm.org/dwyl/hapi-auth-jwt2?type=dev) 
+- [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
+- [![Join the chat at https://gitter.im/dwyl/chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/dwyl/chat?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Building a custom translator.
 
