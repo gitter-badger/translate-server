@@ -1,45 +1,32 @@
-const { format, createLogger, transports } = require('winston');
+const chalk = require('chalk');
 
-const config = require('../config');
+const { LOG_LEVEL } = require("../config");
 
-// const logger = createLogger({
-//   level: config.LOG_LEVEL,
-//   format: format.combine(
-//     format.timestamp({
-//       format: 'YYYY-MM-DD HH:mm:ss'
-//     }),
-//     format.errors({stack: true}),
+const map = {
+  debug: 3,
+  info: 2,
+  warn: 1,
+  error: 0
+};
 
-//     format.json()
-//   ),
-//   transports: [
-//     new transports.File({filename: 'error.log', level: 'error'}),
-//     new transports.File({filename: 'combined.log'})
-//   ]
-// });
+class Log {
+  constructor(level) {
+    this.levelNo = map[level];
+  };
 
-// if (process.env.NODE_ENV !== 'production') {
-//   logger.add(new transports.Console({
-//     format: format.combine(
-//       format.colorize(),
-//       format.simple()
-//     )
-//   }));
-// }
+  print (level, label, msg) {
+    const currentLevelNo = map[level];
+    if (currentLevelNo <= this.levelNo) {
+      let type = level === 'debug' ? 'log' : level;
+      console[type](`${level}`, ` ${label}:`, msg);
+    }
+  };
 
-const logger = createLogger({
-  level: config.LOG_LEVEL,
-  transports: new transports.Console({
-    format: format.combine(
-      format.colorize(),
-      format.simple()
-    )
-  })
-});
-
-if (process.env.NODE_ENV === 'production') {
-  logger.add(new transports.File({ filename: 'error.log', level: 'error' }));
+  debug(label, msg) { this.print(chalk.green('debug'), label, msg); };
+  info(label, msg) { this.print(chalk.cyan('info'), label, msg); };
+  warn(label, msg) { this.print(chalk.yellow('warn'), label, msg); };
+  error(label, msg) { this.print(chalk.red('error'), label, msg); };
 }
-module.exports = logger;
 
-
+const log = new Log(LOG_LEVEL);
+module.exports = log;
