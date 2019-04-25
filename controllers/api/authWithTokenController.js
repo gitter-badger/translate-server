@@ -47,7 +47,7 @@ module.exports = {
         res.ok(response);
     },
 
-    ocr: async(req, res) => {
+    getOcrResult: async(req, res) => {
         const { key } = req.query;
         const fileUrl = getObjectUrlByKey(key);
         const result = await textDetection(fileUrl);
