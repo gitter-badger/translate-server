@@ -1,5 +1,8 @@
 # TRANSLATE-SERVER
 
+ [![](https://travis-ci.org/tsq-cli/translate-server.svg?branch=master)](https://travis-ci.org/tsq-cli/translate-server)
+
+
 Building a custom translator.
 
 ### Prepare
